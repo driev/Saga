@@ -84,7 +84,7 @@ if (ini_get('date.timezone') == ''
  * Simply change the first "path" variable, and the individual paths
  * will be set accordingly.
  */
-$path = "..";
+$path = "/var/www/html";
 
 
 $bonfire_path = "${path}/bonfire";

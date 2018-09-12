@@ -1,0 +1,26 @@
+version: '3.2'
+services:
+    saga-db:
+        image: mysql:5.6.20
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=mysql
+            - MYSQL_DATABASE=sa-ga.city
+            - MYSQL_USER=sa-ga-user
+            - MYSQL_PASSWORD=sa-ga-db-pass
+        volumes:
+            - ./Database/sa-ga_city.sql:/docker-entrypoint-initdb.d/sa-ga_city.sql:ro
+        ports:
+            - "3307:3306"
+
+    saga-app:
+        build:
+            context: .
+        environment:
+            - LOG_STDOUT=true
+            - LOG_STDERR=true
+            - LOG_LEVEL=debug
+        links:
+          - saga-db
+        ports:
+            - "8080:80"
