@@ -2,5 +2,8 @@ FROM fauria/lap
 
 COPY ./Site /var/www/html
 COPY ./httpd.conf /etc/httpd/conf/httpd.conf
+COPY ./php.ini /etc/php.ini
 
-RUN chmod 777 -R /var/www/html/application/modules/embedcontent/templates
+# run these in the container - docker exec -it <container id> /bin/bash
+#RUN chown -R apache:apache /var/www/html
+#RUN chmod -R 755 /var/www/html/public/*

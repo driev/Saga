@@ -41,10 +41,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'saga-db';
+$db['default']['hostname'] = 'saga-db-host';
 $db['default']['username'] = 'root';
-$db['default']['password'] = 'mysql';
-$db['default']['database'] = 'sa-ga.city';
+$db['default']['password'] = 'root_pass';
+$db['default']['database'] = 'saga_db';
 $db['default']['port']     = '3306';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = 'bf_';

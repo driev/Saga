@@ -1,15 +1,15 @@
 version: '3.2'
 services:
-    saga-db:
+    saga-db-host:
         image: mysql:5.6.20
         restart: always
         environment:
-            - MYSQL_ROOT_PASSWORD=mysql
-            - MYSQL_DATABASE=sa-ga.city
-            - MYSQL_USER=sa-ga-user
-            - MYSQL_PASSWORD=sa-ga-db-pass
+            - MYSQL_ROOT_PASSWORD=root_pass
+            - MYSQL_DATABASE=saga_db
+            - MYSQL_USER=saga_db-user
+            - MYSQL_PASSWORD=saga_db-pass
         volumes:
-            - ./Database/sa-ga_city.sql:/docker-entrypoint-initdb.d/sa-ga_city.sql:ro
+            - ./Database/saga_db_init.sql:/docker-entrypoint-initdb.d/saga_db_init.sql
         ports:
             - "3307:3306"
 
@@ -21,6 +21,6 @@ services:
             - LOG_STDERR=true
             - LOG_LEVEL=debug
         links:
-          - saga-db
+          - saga-db-host
         ports:
             - "8080:80"
