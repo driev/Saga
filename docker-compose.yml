@@ -1,8 +1,7 @@
 version: '3.2'
 services:
     saga-db-host:
-        image: mysql:5.6.20
-        restart: always
+        image: mysql:5.6.43
         environment:
             - MYSQL_ROOT_PASSWORD=root_pass
             - MYSQL_DATABASE=saga_db
